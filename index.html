@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anushka Thakur — AI &amp; Data Science Portfolio</title>
+<meta name="description" content="Portfolio of Anushka Thakur: AI and Data Science undergraduate at TCET, University of Mumbai. RAG systems, ML research and community service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F3;
+  --sheet:#F8F9FA;
+  --ink:#172036;
+  --slate:#586379;
+  --rule:#CDD4DC;
+  --indigo:#2E3F94;
+  --marigold:#E3A13A;
+  --marigold-tint:#F6E4C3;
+  --before:#B7C0CC;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"Newsreader", Georgia, serif;
+  --wrap:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--indigo);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--marigold);outline-offset:3px;border-radius:2px}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(238,241,243,.92);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:60px}
+.nav .mark{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;letter-spacing:-.01em;margin-right:auto}
+.nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;font-family:var(--display);font-size:15px}
+.nav ul a{color:var(--slate);text-decoration:none}
+.nav ul a:hover{color:var(--ink)}
+@media (max-width:900px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding:88px 0 72px}
+.hero-grid{display:block}
+.hero h1{font-family:var(--display);font-weight:750;font-size:clamp(58px,9.5vw,128px);line-height:.9;letter-spacing:-.045em;margin:0 0 40px;font-variation-settings:"opsz" 96}
+.hero h1 span{display:block}
+.lede a{color:var(--ink);text-decoration-color:var(--marigold);text-decoration-thickness:2px;word-break:break-word}
+.lede{font-size:clamp(22px,2.4vw,30px);line-height:1.35;max-width:34ch;margin:0 0 32px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;margin:0;font-size:17px;max-width:640px}
+.facts dt{font-family:var(--display);color:var(--slate);font-size:15px;padding-top:2px}
+.facts dd{margin:0}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font-family:var(--display);font-size:16px;font-weight:600;text-decoration:none;padding:11px 18px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--marigold);border-color:var(--marigold);color:var(--ink)}
+.email-text{font-size:15px;color:var(--slate);margin-top:12px}
+
+/* ledger: the signature element */
+.ledger{background:var(--sheet);border:1px solid var(--rule);border-radius:14px;padding:26px 26px 18px}
+.ledger h2{font-family:var(--display);font-size:17px;font-weight:650;margin:0 0 4px;letter-spacing:-.005em}
+.ledger .sub{font-size:15px;color:var(--slate);margin:0 0 20px;line-height:1.4}
+.metric{margin:0 0 18px}
+.metric-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--display);font-size:15px}
+.metric-head b{font-weight:600}
+.metric-head .val{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--slate)}
+.metric-head .val strong{color:var(--ink);font-weight:700}
+.metric .from{font-size:13.5px;color:var(--slate);font-family:var(--display);margin-top:2px}
+.bars{position:relative;height:16px;margin-top:7px}
+.bar{position:absolute;left:0;border-radius:3px}
+.bar.b{top:0;height:5px;background:var(--before)}
+.bar.a{top:8px;height:8px;background:var(--marigold);transform-origin:left center}
+.bar.range{top:0;height:5px;background:repeating-linear-gradient(90deg,var(--before) 0 3px,transparent 3px 5px)}
+.ledger .key{display:flex;gap:18px;font-family:var(--display);font-size:13px;color:var(--slate);border-top:1px solid var(--rule);padding-top:12px;margin-top:4px}
+.key i{display:inline-block;width:14px;height:6px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.animate .bar.a{animation:grow 1.1s cubic-bezier(.2,.7,.2,1) both}
+.animate .metric:nth-child(4) .bar.a{animation-delay:.12s}
+.animate .metric:nth-child(5) .bar.a{animation-delay:.24s}
+@keyframes grow{from{transform:scaleX(var(--start,.5))}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.animate .bar.a{animation:none}}
+
+/* sections */
+.sec{display:grid;grid-template-columns:200px 1fr;gap:56px;padding:80px 0;border-top:1px solid var(--rule)}
+.sec>h2{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:0;position:sticky;top:92px;align-self:start}
+.sec>h2 small{display:block;font-weight:400;font-size:15px;color:var(--slate);letter-spacing:0;margin-top:8px;line-height:1.4}
+.prose p{margin:0 0 1em;max-width:66ch}
+.prose p:last-child{margin-bottom:0}
+
+h3{font-family:var(--display);font-weight:650;font-size:24px;line-height:1.2;letter-spacing:-.015em;margin:0}
+h3 a{color:var(--ink);text-decoration:none;background-image:linear-gradient(var(--marigold),var(--marigold));background-size:0 2px;background-position:0 100%;background-repeat:no-repeat}
+h3 a:hover{background-size:100% 2px}
+.meta{font-family:var(--display);font-size:15px;color:var(--slate);margin:6px 0 0;display:flex;flex-wrap:wrap;gap:4px 16px}
+.tools{font-family:var(--display);font-size:14.5px;color:var(--slate);margin:14px 0 0}
+.tools b{color:var(--ink);font-weight:600}
+ul.pts{margin:14px 0 0;padding-left:1.1em;max-width:68ch}
+ul.pts li{margin:0 0 .45em;padding-left:.2em}
+ul.pts li::marker{color:var(--marigold)}
+
+/* entries */
+.entry{padding:0 0 44px;margin:0 0 44px;border-bottom:1px dashed var(--rule)}
+.entry:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.project{display:grid;grid-template-columns:1fr 280px;gap:40px}
+.project.wide{grid-template-columns:1fr}
+.project .side{padding-top:6px}
+.side .metric-head{font-size:14px}
+.stat-row{display:flex;flex-wrap:wrap;gap:22px 30px;margin-top:6px}
+.stat{font-family:var(--display)}
+.stat strong{display:block;font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13.5px;color:var(--slate)}
+.side-label{font-family:var(--display);font-size:13.5px;color:var(--slate);margin:0 0 10px}
+.status{display:inline-block;font-family:var(--display);font-size:13px;font-weight:600;background:var(--marigold-tint);color:#6B4A0E;padding:2px 10px;border-radius:999px}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--rule)}
+.timeline>li{position:relative;padding-left:36px;margin-bottom:40px}
+.timeline>li:last-child{margin-bottom:0}
+.timeline>li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2.5px solid var(--indigo)}
+.timeline>li.now::before{background:var(--marigold);border-color:var(--marigold)}
+
+/* misc grid */
+.misc{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:24px 24px 22px;display:flex;flex-direction:column}
+.card.span{grid-column:1/-1}
+.card.feature{grid-column:1/-1;border-left:5px solid var(--marigold)}
+.card h3{font-size:20px}
+.card ul.pts{font-size:17px}
+.card .tools{margin-top:auto;padding-top:14px}
+
+/* community */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:32px}
+.gallery figure{margin:0}
+.gallery button{all:unset;cursor:zoom-in;display:block;border-radius:10px;overflow:hidden;width:100%}
+.gallery button:focus-visible{outline:3px solid var(--marigold);outline-offset:3px}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery button:hover img{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.gallery img{transition:none}}
+.gallery figcaption{font-size:15px;color:var(--slate);margin-top:8px;line-height:1.4}
+.g1{grid-column:span 7}.g1 button{aspect-ratio:1080/915}
+.g2{grid-column:span 5}.g2 button{aspect-ratio:683/860}
+.g3{grid-column:span 5}.g3 button{aspect-ratio:836/1000}
+.g4{grid-column:span 7}.g4 button{aspect-ratio:1066/637}
+.g3,.g4{align-self:start}
+.award{display:flex;gap:14px;align-items:flex-start;background:var(--marigold-tint);border-radius:12px;padding:16px 20px;margin-top:22px;font-size:17px;max-width:68ch}
+.award svg{flex:none;margin-top:3px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(23,32,54,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:5vh 5vw;flex-direction:column;gap:14px}
+.lb.open{display:flex}
+.lb img{max-height:80vh;max-width:90vw;border-radius:8px;width:auto}
+.lb p{color:#E7EBF0;margin:0;font-size:17px;text-align:center;max-width:60ch}
+.lb button{position:absolute;top:18px;right:22px;background:none;border:1.5px solid #E7EBF0;color:#E7EBF0;font-family:var(--display);font-size:15px;border-radius:999px;padding:7px 16px;cursor:pointer}
+
+/* skills */
+.skills{display:grid;grid-template-columns:150px 1fr;gap:14px 28px;margin:0}
+.skills dt{font-family:var(--display);font-weight:600;font-size:16px;padding-top:3px}
+.skills dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:var(--display);font-size:15px;background:var(--sheet);border:1px solid var(--rule);border-radius:7px;padding:3px 10px}
+.certs{list-style:none;margin:0;padding:0}
+.certs li{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--rule)}
+.certs li:first-child{border-top:1px solid var(--rule)}
+.certs .by{font-family:var(--display);font-size:15px;color:var(--slate);text-align:right;flex:none}
+
+/* footer */
+.foot{background:var(--ink);color:#E7EBF0;margin-top:40px;padding:80px 0 48px}
+.foot h2{font-family:var(--display);font-weight:700;font-size:clamp(40px,6vw,72px);letter-spacing:-.035em;line-height:1;margin:0 0 20px}
+.foot p{max-width:52ch;font-size:20px;margin:0 0 30px;color:#C9D0DA}
+.foot .btn{border-color:#E7EBF0;color:#E7EBF0}
+.foot .btn.primary{background:var(--marigold);border-color:var(--marigold);color:var(--ink)}
+.foot .btn:hover{background:#E7EBF0;color:var(--ink);border-color:#E7EBF0}
+.foot .email-text{color:#9AA4B4}
+.foot small{display:block;margin-top:64px;font-family:var(--display);font-size:14px;color:#8A94A6}
+
+/* responsive */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .project{grid-template-columns:1fr;gap:20px}
+}
+@media (max-width:760px){
+  body{font-size:18px}
+  .hero{padding:56px 0 56px}
+  .sec{grid-template-columns:1fr;gap:28px;padding:60px 0}
+  .sec>h2{position:static}
+  .misc{grid-template-columns:1fr}
+  .gallery .g1,.gallery .g2,.gallery .g3,.gallery .g4{grid-column:1/-1}
+  .skills{grid-template-columns:1fr;gap:6px}
+  .skills dd{margin-bottom:12px}
+  .certs li{flex-direction:column;gap:2px}
+  .certs .by{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="mark" href="#top">Anushka Thakur</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span>Anushka</span><span>Thakur</span></h1>
+      <dl class="facts">
+        <dt>Studying</dt><dd>B.Tech in AI &amp; Data Science, Honors in Cybersecurity, TCET, University of Mumbai (2023–2027), CGPA 8.63</dd>
+        <dt>Currently</dt><dd>Research Intern, RISE Lab, Centre for Biomedical Engineering, IIT Delhi</dd>
+        <dt>Based in</dt><dd>Mumbai, India</dd>
+      </dl>
+    </div>
+
+  </div>
+</header>
+
+<div class="wrap">
+
+<section class="sec" id="about">
+  <h2>About</h2>
+  <div class="prose">
+    <p>I'm a final-year B.Tech student in Artificial Intelligence and Data Science, with Honors in Cybersecurity, at Thakur College of Engineering and Technology, University of Mumbai.</p>
+    <p>My work sits where retrieval, language models and evaluation meet. I build RAG systems, agents and ML pipelines, then test them on held-out data and report what didn't work alongside what did. I currently intern at the RISE Lab, IIT Delhi, on medical ultrasound research.</p>
+    <p>Outside the lab I spent a year leading community service for the Rotaract Club of TCET, contributing 205 hours of volunteering. I speak English, Hindi, Marathi and Gujarati, and I'm usually running, swimming, trekking, painting or playing guitar.</p>
+  </div>
+</section>
+
+<section class="sec" id="research">
+  <h2>Research<small>Papers and publications</small></h2>
+  <div>
+    <article class="entry project">
+      <div>
+        <h3><a href="https://drive.google.com/file/d/1OCSbuQ1Tqfvb4ito4URgb6g-NufPhTBp/view?usp=sharing" target="_blank" rel="noopener noreferrer">Multimodal Retrieval-Augmented Generation for Scientific Papers</a></h3>
+        <p class="meta"><span>Independent research</span><span>Sept 2026 – present</span><span class="status">Paper in preparation</span></p>
+        <ul class="pts">
+          <li>Compared image-based (CLIP, jina-embeddings-v4) and text-based figure retrieval for research-paper QA: developed on 10 papers, tested once on 5 unseen papers with frozen settings (113 questions, 3 LLMs, significance tests).</li>
+          <li>Showed that figure summaries find figures but lose exact numbers; full transcriptions raised accuracy from 58–68% to 100% on dev and 82–100% on test.</li>
+          <li>Matched jina-embeddings-v4 with no significant difference using a ~35× smaller, laptop-runnable model, and reported three negative results.</li>
+        </ul>
+      </div>
+      <div class="side">
+        <p class="side-label">Figure-QA accuracy</p>
+        <div class="metric">
+          <div class="metric-head"><b>Dev set</b><span class="val">58–68% → <strong>100%</strong></span></div>
+          <div class="bars" aria-hidden="true"><div class="bar range" style="width:68%"></div><div class="bar b" style="width:58%"></div><div class="bar a" style="width:100%"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><strong>113</strong><span>questions</span></div>
+          <div class="stat"><strong>~35×</strong><span>smaller model</span></div>
+        </div>
+      </div>
+    </article>
+    <article class="entry">
+      <h3>AI-Based Insider Trading Detection System</h3>
+      <p class="meta"><span>Conference paper</span><span>MULTICON-W 2026, IC-ICN 2026, TCET Mumbai</span><span>March 2026</span></p>
+      <p style="margin:12px 0 0;max-width:66ch">Presented a full-length paper on detecting insider trading with AI.</p>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="experience">
+  <h2>Experience</h2>
+  <ol class="timeline">
+    <li class="now">
+      <h3>Research Intern, RISE Lab</h3>
+      <p class="meta"><span>Centre for Biomedical Engineering, IIT Delhi</span><span>Nov 2026 – present</span></p>
+      <ul class="pts">
+        <li>Selected for an interdisciplinary biomedical project under Prof. Biswarup Mukherjee.</li>
+        <li>Reviewing literature and building domain knowledge in medical ultrasound data.</li>
+        <li>Studying established computational methods and exploring approaches for upcoming experimental work.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://drive.google.com/file/d/194XUi_Vd6Q1qh4nRiGitNEEkSoJ_EPuk/view?usp=sharing" target="_blank" rel="noopener noreferrer">Advanced SQL Intern</a></h3>
+      <p class="meta"><span>TCET In-House Internship Programme</span><span>January 2025</span></p>
+      <ul class="pts"><li>Completed a 120-hour Advanced SQL internship, earning 3 academic credits.</li></ul>
+    </li>
+    <li>
+      <h3><a href="https://drive.google.com/file/d/1TLFjrKM5Vfxrzdc3VmVGfii7knF-EwBb/view?usp=sharing" target="_blank" rel="noopener noreferrer">Saukhyam Buddy</a></h3>
+      <p class="meta"><span>TCET In-House Internship Programme</span><span>Sustainability awareness and community outreach</span><span>May 2024</span></p>
+      <ul class="pts"><li>Completed a 40-hour internship in sustainability awareness, content writing and outreach, earning 1 academic credit.</li></ul>
+    </li>
+  </ol>
+</section>
+
+<section class="sec" id="projects">
+  <h2>Projects<small>Main work, newest first</small></h2>
+  <div>
+    <article class="entry project">
+      <div>
+        <h3><a href="https://github.com/anu5hkaa/RepoBugClassifier" target="_blank" rel="noopener noreferrer">RepoBugClassifier: GitHub Issue Triage</a></h3>
+        <p class="meta"><span>Sep – Nov 2026</span></p>
+        <ul class="pts">
+          <li>Built a two-stage ML triage system that flags real bugs and ranks them by fix likelihood, trained on 7,247 issues from 7 open-source repos (scikit-learn, pandas, NumPy, Electron).</li>
+          <li>Showed GitHub labels are unreliable (only 39% of "bugs" had a merged fix), built evidence-backed labels from fix PRs and 34,600 maintainer comments, and removed template leakage.</li>
+          <li>Reached 0.87 macro-F1 on future issues and 0.85 on unseen repos with 95% bug precision; deployed as a Streamlit demo.</li>
+        </ul>
+        <p class="tools"><b>Built with</b> Python, scikit-learn, Sentence-Transformers, GitHub GraphQL API, Streamlit</p>
+      </div>
+      <div class="side">
+        <p class="side-label">vs. keyword baseline</p>
+        <div class="metric">
+          <div class="metric-head"><b>Macro-F1, unseen repos</b><span class="val">0.67 → <strong>0.85</strong></span></div>
+          <div class="bars" aria-hidden="true"><div class="bar b" style="width:67%"></div><div class="bar a" style="width:85%"></div></div>
+        </div>
+        <div class="metric">
+          <div class="metric-head"><b>Fixable bugs at top</b><span class="val">37% → <strong>65%</strong></span></div>
+          <div class="bars" aria-hidden="true"><div class="bar b" style="width:37%"></div><div class="bar a" style="width:65%"></div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry project">
+      <div>
+        <h3><a href="https://github.com/anu5hkaa/AI-Business-Copilot" target="_blank" rel="noopener noreferrer">AI Business Copilot: Conversational BI Agent</a></h3>
+        <p class="meta"><span>Jul – Aug 2026</span></p>
+        <ul class="pts">
+          <li>Built an agentic BI assistant that answers natural-language questions over CSV/Excel data and PDFs using tool calling, Pandas code execution and RAG.</li>
+          <li>Designed a Pydantic query-understanding layer that extracts intent, data source, entities, constraints and follow-up references.</li>
+          <li>Developing a full-stack platform with file ingestion, KPI dashboards, conversational memory, sandboxed code execution and an intent-driven chart planner.</li>
+        </ul>
+        <p class="tools"><b>Built with</b> Python, LangGraph, Groq, FastAPI, Next.js, Pandas, Plotly, RAG</p>
+      </div>
+      <div class="side">
+        <p class="side-label">Answers questions over</p>
+        <div class="stat-row">
+          <div class="stat"><strong>CSV</strong><span>tables</span></div>
+          <div class="stat"><strong>Excel</strong><span>workbooks</span></div>
+          <div class="stat"><strong>PDF</strong><span>documents</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry project">
+      <div>
+        <h3><a href="https://github.com/anu5hkaa/PaperInsight-AI-Powered-Research-Paper-Assistant" target="_blank" rel="noopener noreferrer">PaperInsight: AI Teaching Assistant for Research Papers</a></h3>
+        <p class="meta"><span>Jan – Mar 2026</span></p>
+        <ul class="pts">
+          <li>Built a RAG system for research-paper Q&amp;A, summaries and multi-paper comparisons with page citations.</li>
+          <li>Raised correctness from 88% to 96% and faithfulness from 54% to 96% with section-aware chunking, hybrid retrieval (RRF) and grounded prompting.</li>
+          <li>Cut median latency from 21.3s to 1.4s by profiling the pipeline and removing a low-value reranker; added offline LLM-judge evals and LangSmith tracing.</li>
+        </ul>
+        <p class="tools"><b>Built with</b> Python, FastAPI, Streamlit, ChromaDB, BM25, Groq, LangSmith</p>
+      </div>
+      <div class="side">
+        <p class="side-label">Before → after</p>
+        <div class="metric">
+          <div class="metric-head"><b>Correctness</b><span class="val">88% → <strong>96%</strong></span></div>
+          <div class="bars" aria-hidden="true"><div class="bar b" style="width:88%"></div><div class="bar a" style="width:96%"></div></div>
+        </div>
+        <div class="metric">
+          <div class="metric-head"><b>Faithfulness</b><span class="val">54% → <strong>96%</strong></span></div>
+          <div class="bars" aria-hidden="true"><div class="bar b" style="width:54%"></div><div class="bar a" style="width:96%"></div></div>
+        </div>
+        <div class="metric">
+          <div class="metric-head"><b>Median latency</b><span class="val">21.3s → <strong>1.4s</strong></span></div>
+          <div class="bars" aria-hidden="true"><div class="bar b" style="width:100%"></div><div class="bar a" style="width:6.6%"></div></div>
+          <div class="from">Shorter is better</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry project">
+      <div>
+        <h3><a href="https://github.com/anu5hkaa/AI-War-News-Analyser-System" target="_blank" rel="noopener noreferrer">War News Analysis System</a></h3>
+        <p class="meta"><span>Nov – Dec 2025</span></p>
+        <ul class="pts">
+          <li>Engineered a news detection and retrieval pipeline combining NewsAPI/RSS ingestion, zero-shot classification, FAISS semantic search and cross-encoder reranking.</li>
+          <li>Reached 90% precision, 96% recall and 93% F1 for retrieval quality in the project evaluation.</li>
+          <li>Added source-linked LLM summaries for traceability and containerised the app with Docker.</li>
+        </ul>
+        <p class="tools"><b>Built with</b> Python, NLP, FAISS, Hugging Face, Groq LLM, Docker, NewsAPI</p>
+      </div>
+      <div class="side">
+        <p class="side-label">Retrieval quality</p>
+        <div class="stat-row">
+          <div class="stat"><strong>90%</strong><span>precision</span></div>
+          <div class="stat"><strong>96%</strong><span>recall</span></div>
+          <div class="stat"><strong>93%</strong><span>F1</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry project">
+      <div>
+        <h3><a href="https://github.com/anu5hkaa/RAG-Based-AI-Assistant-System" target="_blank" rel="noopener noreferrer">Lecture AI Assistant: RAG for Video Lectures</a></h3>
+        <p class="meta"><span>Jun – Aug 2025</span></p>
+        <ul class="pts">
+          <li>Built a searchable lecture knowledge base that answers questions with lecture and timestamp references, indexing 4,400+ segments from about 3.8 hours of Hindi–English content.</li>
+          <li>Implemented transcription, translation, timestamped chunking, batched embeddings, top-5 cosine retrieval and grounded prompting with off-topic query rejection.</li>
+          <li>Runs locally through Ollama with a FastAPI backend and a Streamlit interface supporting seven media formats.</li>
+        </ul>
+        <p class="tools"><b>Built with</b> Python, FastAPI, Streamlit, OpenAI Whisper, Ollama, Llama 3.2, BGE-M3, scikit-learn</p>
+      </div>
+      <div class="side">
+        <p class="side-label">Indexed</p>
+        <div class="stat-row">
+          <div class="stat"><strong>4,400+</strong><span>segments</span></div>
+          <div class="stat"><strong>3.8 h</strong><span>of lectures</span></div>
+          <div class="stat"><strong>7</strong><span>media formats</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="more">
+  <h2>Miscellaneous projects<small>Experiments and practice from my GitHub</small></h2>
+  <div class="misc">
+    <article class="card feature">
+      <h3><a href="https://github.com/anu5hkaa/Data-Efficient-Training-and-Adaptive-Reasoning-in-Small-Transformers" target="_blank" rel="noopener noreferrer">How Little Data Does a Small Model Need to Reason?</a></h3>
+      <p class="meta"><span>Data-efficient training and adaptive reasoning in small Transformers</span><span class="status">Ongoing</span></p>
+      <ul class="pts">
+        <li>Studies how the size, source and selection of training data affect reasoning in a small Transformer trained from scratch on Sudoku, across five research questions.</li>
+        <li>Built a reproducible pipeline: 111,000 puzzles sampled from 3M, validity-preserving augmentation, and a balanced easy/medium/hard test set of 3,000.</li>
+        <li>An 806k-parameter one-pass baseline memorised at 10k puzzles and solved 0% of puzzles even at 98k, which led to building a looping reasoning model next.</li>
+      </ul>
+      <p class="tools"><b>Built with</b> Python, PyTorch, NumPy, Kaggle / Colab</p>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://github.com/anu5hkaa/CLIP-style-from-scratch" target="_blank" rel="noopener noreferrer">Tiny VLM from Scratch: a CLIP-Style Model</a></h3>
+      <ul class="pts">
+        <li>Built a small vision-language model in PyTorch: a CNN image encoder and a Transformer text encoder that share one 128-dimensional embedding space.</li>
+        <li>Trained it with bidirectional image↔text contrastive loss and temperature scaling on a synthetic colour, shape and position caption dataset.</li>
+        <li>Reached about 81% image-to-text retrieval accuracy on the validation set.</li>
+      </ul>
+      <p class="tools"><b>Built with</b> PyTorch, NumPy</p>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://github.com/anu5hkaa/my-learnings/blob/main/Rag-llm-learning-main/Lora.ipynb" target="_blank" rel="noopener noreferrer">LoRA Fine-Tuning for Twitter Sentiment</a></h3>
+      <ul class="pts">
+        <li>Fine-tuned DistilBERT for 3-class tweet sentiment on TweetEval (45,615 training tweets) with LoRA adapters on the attention query and value layers.</li>
+        <li>Trained only 666k of 67.6M parameters (under 1%) using PEFT on a single T4 GPU.</li>
+        <li>Scored 68.2% accuracy and 0.68 F1 on the 12,284-tweet test set.</li>
+      </ul>
+      <p class="tools"><b>Built with</b> Hugging Face Transformers, PEFT, Datasets, PyTorch</p>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://github.com/anu5hkaa/my-learnings" target="_blank" rel="noopener noreferrer">Hotel Booking Cancellation Prediction</a></h3>
+      <ul class="pts">
+        <li>Predicted booking cancellations with a Decision Tree while studying how splits and hyperparameters shape the model.</li>
+        <li>Used pre- and post-pruning to curb overfitting: 81.59% test accuracy, close to 82.47% on training.</li>
+        <li>Judged the model on precision, recall and F1, not accuracy alone.</li>
+      </ul>
+      <p class="tools"><b>Built with</b> Python, scikit-learn, Pandas</p>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://github.com/anu5hkaa/my-learnings" target="_blank" rel="noopener noreferrer">LangGraph Agent Practice</a></h3>
+      <ul class="pts">
+        <li>Daily hands-on practice with state graphs, conditional routing, loops, memory and tool calling.</li>
+        <li>Works up from ReAct agents to RAG, hybrid retrieval, query transformation, reranking and multimodal RAG.</li>
+      </ul>
+      <p class="tools"><b>Built with</b> LangGraph, LangChain, Python</p>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://github.com/anu5hkaa/my-learnings" target="_blank" rel="noopener noreferrer">Hugging Face LLM Course Notebooks</a></h3>
+      <ul class="pts">
+        <li>Fine-tuned pretrained Transformers with the Trainer API and from scratch in PyTorch, including DistilBERT.</li>
+        <li>Built IMDb sentiment classification and token classification notebooks.</li>
+        <li>Explored how pipeline() works internally and how to slice and prepare custom datasets.</li>
+      </ul>
+      <p class="tools"><b>Built with</b> Hugging Face Transformers, Datasets, PyTorch</p>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://github.com/anu5hkaa/my-learnings" target="_blank" rel="noopener noreferrer">Machine Learning from Scratch</a></h3>
+      <ul class="pts">
+        <li>Notes and notebooks on linear and logistic regression, KNN, SVM, Naive Bayes, decision trees and ensembles.</li>
+        <li>Implemented regularised regression with gradient descent and closed-form solutions, plus LoRA and ChromaDB experiments.</li>
+        <li>Practised NLP preprocessing with NLTK: tokenisation, stop-word removal, stemming and lemmatisation.</li>
+      </ul>
+      <p class="tools"><b>Built with</b> Python, NumPy, scikit-learn</p>
+    </article>
+
+    <article class="card span">
+      <h3>Daily ML, LLM, RAG and DSA Practice</h3>
+      <p class="meta"><a href="https://github.com/anu5hkaa/TensorTonic-Solutions" target="_blank" rel="noopener noreferrer">TensorTonic solutions</a><a href="https://github.com/anu5hkaa/Leetcode" target="_blank" rel="noopener noreferrer">LeetCode solutions</a></p>
+      <ul class="pts">
+        <li>Solve ML, LLM and RAG practice questions almost daily, implementing core pieces from scratch on TensorTonic, such as per-sample log loss and a vectorised sigmoid.</li>
+        <li>Solve LeetCode problems in Python across arrays, strings, sorting, counting and dynamic programming, synced to GitHub with LeetHub.</li>
+        <li>Keep my practice notebooks on LangGraph agents, vector stores and fine-tuning in one place, in my-learnings.</li>
+      </ul>
+      <p class="tools"><b>Built with</b> Python, NumPy</p>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="community">
+  <h2>Extra-curricular<small>Leadership and community service</small></h2>
+  <div>
+    <article class="entry">
+      <h3><a href="https://drive.google.com/file/d/1SUfiPf3NthQRA4d4keBQRn9FZBnrWg2/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Community Service Director, Rotaract Club of TCET</a></h3>
+      <p class="meta"><span>Mumbai</span><span>Jun 2024 – Jul 2025</span></p>
+      <ul class="pts">
+        <li>Led community-service initiatives and coordinated volunteering activities.</li>
+        <li>Contributed 205 hours of voluntary service.</li>
+        <li>Organised community projects with schools, NGOs and volunteers.</li>
+      </ul>
+      <div class="award">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6" fill="none" stroke="#6B4A0E" stroke-width="2"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8" fill="none" stroke="#6B4A0E" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Under my leadership the avenue was named <a href="https://drive.google.com/file/d/1sIgZlMQ4DstDKy06C7eZ-X85y4zGjn1b/view?usp=sharing" target="_blank" rel="noopener noreferrer">Best Performing Avenue – Community Service (Quarter 4)</a>, 2024–25.</span>
+      </div>
+
+      <div class="gallery">
+        <figure class="g1">
+          <button type="button" data-full="img/cs-school.jpg" aria-label="Enlarge photo: school visit with fellow volunteers"><img src="img/cs-school.jpg" alt="Five volunteers crouching in front of a classroom of smiling school students in blue uniforms"></button>
+          <figcaption>A school visit with fellow Rotaract volunteers.</figcaption>
+        </figure>
+        <figure class="g2">
+          <button type="button" data-full="img/cs-donation.jpg" aria-label="Enlarge photo: Threads of Kindness clothes donation drive"><img src="img/cs-donation.jpg" alt="Three Rotaract members in club polos behind a collection table with the Threads of Kindness clothes donation drive poster" style="object-position:top"></button>
+          <figcaption>Threads of Kindness, a clothes donation drive at TCET, 9–10 August 2024.</figcaption>
+        </figure>
+        <figure class="g3">
+          <button type="button" data-full="img/cs-session.jpg" aria-label="Enlarge photo: menstrual awareness drive for school students"><img src="img/cs-session.jpg" alt="A speaker addressing a hall of seated school students under a Family Planning Association of India banner"></button>
+          <figcaption>A menstrual awareness drive for school students with the Family Planning Association of India.</figcaption>
+        </figure>
+        <figure class="g4">
+          <button type="button" data-full="img/cs-community.jpg" aria-label="Enlarge photo: community outreach visit"><img src="img/cs-community.jpg" alt="Anushka and a young girl smiling and making peace signs outside a home"></button>
+          <figcaption>On a community outreach visit.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="entry">
+      <h3>Working Committee Member, Society for Data Science (S4DS)</h3>
+      <p class="meta"><span>Mumbai</span><span>Aug 2025 – Jan 2026</span></p>
+      <ul class="pts">
+        <li>Led PR and promotional outreach for Zypher 2025, the department's technical fest, contributing about 60 hours.</li>
+        <li>Helped run several technical webinars organised by S4DS.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Programming</dt><dd class="chips"><span>Python</span><span>SQL</span><span>HTML</span></dd>
+    <dt>Focus areas</dt><dd class="chips"><span>Machine Learning</span><span>Deep Learning</span><span>NLP</span><span>LLMs</span><span>Generative AI</span><span>RAG</span></dd>
+    <dt>Libraries</dt><dd class="chips"><span>PyTorch</span><span>scikit-learn</span><span>Hugging Face Transformers</span><span>NumPy</span><span>Pandas</span><span>NLTK</span><span>FastAPI</span><span>Streamlit</span><span>LangChain</span><span>LangGraph</span><span>Matplotlib</span><span>Seaborn</span></dd>
+    <dt>Tools</dt><dd class="chips"><span>Git / GitHub</span><span>Docker</span><span>FAISS</span><span>ChromaDB</span><span>REST APIs</span><span>Jupyter</span><span>Google Colab</span><span>VS Code</span><span>BeautifulSoup</span></dd>
+    <dt>Languages</dt><dd class="chips"><span>English</span><span>Hindi</span><span>Marathi</span><span>Gujarati</span></dd>
+  </dl>
+</section>
+
+<section class="sec" id="certificates">
+  <h2>Certificates</h2>
+  <ul class="certs">
+    <li><span><a href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">Generative AI with Large Language Models</a></span><span class="by">DeepLearning.AI</span></li>
+    <li><span><a href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">Retrieval-Augmented Generation</a></span><span class="by">DeepLearning.AI</span></li>
+    <li><span><a href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">Machine Learning Specialization</a></span><span class="by">DeepLearning.AI and Stanford University</span></li>
+    <li><span>Large Language Models (LLMs) &amp; NLP</span><span class="by">Hugging Face</span></li>
+    <li><span><a href="https://drive.google.com/file/d/150-C1GbGHXDLfgI1zO4hQy_rmALVf-iL/view?usp=sharing" target="_blank" rel="noopener noreferrer">Ethical Hacker</a></span><span class="by">Cisco Networking Academy</span></li>
+  </ul>
+</section>
+
+</div>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <h2>Let's talk.</h2>
+    <p>I'm open to research collaborations and internships in machine learning, NLP and retrieval systems.</p>
+    <div class="links">
+      <a class="btn primary email-btn" href="mailto:anushka.dharmesh.thakur@gmail.com" title="anushka.dharmesh.thakur@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/anushkathakur15/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="btn" href="https://github.com/anu5hkaa" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p class="email-text">anushka.dharmesh.thakur@gmail.com</p>
+    <small>Anushka Thakur, Mumbai, 2026</small>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button type="button" id="lbClose">Close</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.email-btn').forEach(function(a){
+    a.addEventListener('click',function(){
+      var addr='anushka.dharmesh.thakur@gmail.com';
+      try{navigator.clipboard.writeText(addr).then(function(){
+        a.textContent='Copied: '+addr;
+        setTimeout(function(){a.textContent='Email';},2500);
+      }).catch(function(){});}catch(e){}
+    });
+  });
+  var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap'),close=document.getElementById('lbClose'),last=null;
+  function open(btn){
+    last=btn;
+    var fig=btn.closest('figure'),src=btn.querySelector('img');
+    img.src=btn.getAttribute('data-full');img.alt=src.alt;
+    cap.textContent=fig.querySelector('figcaption').textContent;
+    lb.classList.add('open');close.focus();
+  }
+  function shut(){lb.classList.remove('open');img.src='';if(last)last.focus();}
+  document.querySelectorAll('.gallery button').forEach(function(b){b.addEventListener('click',function(){open(b)})});
+  close.addEventListener('click',shut);
+  lb.addEventListener('click',function(e){if(e.target===lb)shut()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))shut()});
+})();
+</script>
+</body>
+</html>
